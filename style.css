@@ -1,0 +1,570 @@
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+
+/* VARIABLES */
+:root {
+    /* CUSTOM COLORS */
+    --background-color: rgb(17, 17, 17);
+    --wire-color: rgb(34, 34, 34);
+    --wire-handle-color: rgb(68, 68, 68);
+    --green: rgb(99, 186, 29);
+    --star-flash-color: rgba(255, 213, 67, 0.1);
+
+    --red: rgb(204, 0, 2);
+    --red-darked: rgb(100, 0, 0);
+    --red-light: rgba(204, 0, 2, 0.5);
+    --red-lightest: rgba(204, 0, 2, 0.3);
+
+    --purple: rgb(117, 80, 123);
+    --purple-darked: rgb(59, 34, 66);
+    --purple-light: rgba(117, 80, 123, 0.5);
+    --purple-lightest: rgba(117, 80, 123, 0.3);
+
+    --blue: rgb(51, 102, 165);
+    --blue-darked: rgb(20, 44, 81);
+    --blue-light: rgba(51, 102, 165, 0.5);
+    --blue-lightest: rgba(51, 102, 165, 0.3);
+
+    --yellow: rgb(255, 213, 67);
+    --yellow-darked: rgb(100, 70, 0);
+    --yellow-light: rgba(255, 213, 67, 0.5);
+    --yellow-lightest: rgba(255, 213, 67, 0.3);
+
+    /* PERCENTAGES */
+    --fifty: 50%;
+    --hundred: 100%;
+
+    /* CSS FUNCTIONS */
+    --center-x-y: translate(-50%, -50%);
+    --center-x: translateX(-50%);
+    --center-y: translateY(-50%);
+
+    /* OTHER */
+    --box-shadow-propeties: 0 2px 20px 4px;
+}
+
+/* CONTENT */
+body {
+    position: relative;
+    margin: 0;
+    background-color: var(--background-color);
+    overflow: hidden;
+}
+
+/* ON/OFF SWITCH */
+.toggle {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+}
+
+.toggle::before,
+.toggle::after {
+    position: absolute;
+    top: var(--fifty);
+    transform: var(--center-y);
+    font-size: 1.2vw;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+}
+
+.toggle::before {
+    content: "OFF";
+    left: -65%;
+    color: var(--background-color);
+}
+
+.toggle::after {
+    content: "ON";
+    right: -60%;
+    color: var(--green);
+}
+
+.toggle label {
+    position: relative;
+    display: inline-block;
+    width: 4vw;
+    height: 4vw;
+    background-color: var(--green);
+    border: .25vw solid white;
+    border-radius: var(--fifty);
+    cursor: pointer;
+}
+
+.toggle label::before {
+    content: "";
+    position: absolute;
+    top: var(--fifty);
+    left: var(--fifty);
+    transform: var(--center-x-y);
+    height: 2.5vw;
+    width: 2.5vw;
+    background-color: var(--green);
+    background-image: url("images/snowflake.svg");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.toggle input {
+    display: none;
+}
+
+.toggle input:checked+label {
+    background-color: var(--red);
+}
+
+.toggle input:checked+label::before {
+    background-color: var(--red);
+}
+
+.off .toggle:before {
+    color: var(--red);
+}
+
+.off .toggle::after {
+    color: var(--background-color);
+}
+
+/* FOREST */
+.forest {
+    top: 0;
+    left: 0;
+    height: var(--hundred);
+}
+
+.forest,
+.forest div {
+    position: absolute;
+    width: var(--hundred);
+}
+
+/* SNOW */
+.forest .snow {
+    bottom: 0;
+    height: 3vh;
+    background-color: white;
+    z-index: 1;
+}
+
+/* TREES */
+.forest .tree {
+    height: var(--hundred);
+    background-repeat: no-repeat;
+}
+
+/* MAIN CHRISTMAS TREE - AUDIO PLAYER */
+.forest .audio-player {
+    left: var(--fifty);
+    bottom: -1%;
+    transform: var(--center-x);
+    width: 40vw;
+    height: 45vw;
+    background-image: url("images/christmas-tree.png");
+    background-size: var(--hundred);
+    background-position: center bottom;
+}
+
+.forest .audio-player .playlist {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--hundred);
+    height: var(--hundred);
+}
+
+/* CHRISTMAS BALLS */
+.forest .audio-player .playlist .christmas-ball {
+    position: absolute;
+    border-radius: var(--fifty);
+    border-style: solid;
+    text-decoration: none;
+}
+
+.forest .audio-player .playlist .christmas-ball i {
+    position: absolute;
+    top: var(--fifty);
+    left: var(--fifty);
+    transform: var(--center-x-y);
+    font-size: .7vw;
+    color: white;
+    transition: .05s;
+}
+
+.forest .audio-player .playlist .christmas-ball:hover i {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.forest .audio-player .playlist .two,
+.forest .audio-player .playlist .three {
+    width: 1.9vw;
+    height: 1.9vw;
+}
+
+.forest .audio-player .playlist .five,
+.forest .audio-player .playlist .six,
+.forest .audio-player .playlist .eight {
+    width: 1.8vw;
+    height: 1.8vw;
+}
+
+.forest .audio-player .playlist .seven,
+.forest .audio-player .playlist .nine {
+    width: 2.2vw;
+    height: 2.2vw;
+}
+
+.forest .audio-player .playlist .one,
+.forest .audio-player .playlist .two,
+.forest .audio-player .playlist .three,
+.forest .audio-player .playlist .five,
+.forest .audio-player .playlist .six,
+.forest .audio-player .playlist .eight {
+    border-width: .15vw;
+}
+
+.forest .audio-player .playlist .four,
+.forest .audio-player .playlist .seven,
+.forest .audio-player .playlist .nine {
+    border-width: .2vw;
+}
+
+.forest .audio-player .playlist .one,
+.forest .audio-player .playlist .four,
+.forest .audio-player .playlist .eight {
+    border-color: var(--red-darked);
+    background-color: var(--red);
+}
+
+.forest .audio-player .playlist .three,
+.forest .audio-player .playlist .nine {
+    border-color: var(--blue-darked);
+    background-color: var(--blue);
+}
+
+.forest .audio-player .playlist .two,
+.forest .audio-player .playlist .five {
+    border-color: var(--purple-darked);
+    background-color: var(--purple);
+}
+
+.forest .audio-player .playlist .six,
+.forest .audio-player .playlist .seven {
+    border-color: var(--yellow-darked);
+    background-color: var(--yellow);
+}
+
+.forest .audio-player .playlist .one {
+    top: 41.3%;
+    left: 38%;
+    width: 2vw;
+    height: 2vw;
+}
+
+.forest .audio-player .playlist .two {
+    top: 39.6%;
+    left: 55.4%;
+}
+
+.forest .audio-player .playlist .three {
+    top: 53.4%;
+    left: 43.8%;
+}
+
+.forest .audio-player .playlist .four {
+    top: 53.5%;
+    left: 63.58%;
+    width: 2.3vw;
+    height: 2.3vw;
+}
+
+.forest .audio-player .playlist .five {
+    top: 64.6%;
+    left: 32.93%;
+}
+
+.forest .audio-player .playlist .six {
+    top: 64.2%;
+    left: 55.5%;
+}
+
+.forest .audio-player .playlist .seven {
+    top: 76.4%;
+    left: 27.7%;
+}
+
+.forest .audio-player .playlist .eight {
+    top: 76.6%;
+    left: 46.6%;
+}
+
+.forest .audio-player .playlist .nine {
+    top: 76.4%;
+    left: 69.4%;
+}
+
+/* CHRISTMAS STAR */
+.forest .audio-player .christmas-star {
+    position: absolute;
+    left: var(--fifty);
+    top: 5%;
+    transform: translateX(-33%);
+    width: 9vw;
+    height: 9vw;
+    border-radius: var(--fifty);
+}
+
+.forest .audio-player .christmas-star div {
+    position: absolute;
+    width: 1vw;
+    height: 1vw;
+    border-radius: var(--fifty);
+}
+
+.forest .audio-player .christmas-star div:nth-child(1) {
+    top: 34.5%;
+    left: 10%;
+}
+
+.forest .audio-player .christmas-star div:nth-child(2) {
+    top: 11.5%;
+    left: 46%;
+}
+
+.forest .audio-player .christmas-star div:nth-child(3) {
+    top: 39.5%;
+    left: 78%;
+}
+
+.forest .audio-player .christmas-star div:nth-child(4) {
+    top: 75.3%;
+    left: 21%;
+}
+
+.forest .audio-player .christmas-star div:nth-child(5) {
+    top: 78.3%;
+    left: 63%;
+}
+
+.star-flash {
+    box-shadow: 0 2px 6vw 6vw var(--star-flash-color);
+}
+
+
+/* SIDE CHRISTMAS TREES */
+.forest .left,
+.forest .right {
+    bottom: 0;
+    width: 27vw;
+    height: 27vw;
+    background-image: url("images/tree.png");
+    background-size: 100%;
+    background-position: center bottom;
+    z-index: -1;
+}
+
+.forest .left {
+    left: 0;
+}
+
+.forest .right {
+    right: 0;
+}
+
+/* CHRISTMAS LIGHTS */
+
+.forest .first-wire,
+.forest .second-wire,
+.forest .third-wire,
+.forest .fourth-wire,
+.forest .fifth-wire {
+    position: absolute;
+    padding: 0;
+    border-top: 3px solid var(--wire-color);
+    text-align: center;
+    white-space: nowrap;
+}
+
+.forest li {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    padding: 0;
+    margin: 0 0.6vw;
+    width: 0.6vw;
+    height: 1.2vw;
+    border-radius: var(--fifty);
+    list-style: none;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+}
+
+.forest .first-wire {
+    left: 21%;
+    bottom: 17%;
+    width: 62%;
+}
+
+.forest .second-wire {
+    left: 24.6%;
+    bottom: 33.5%;
+    width: 55.5%;
+}
+
+.forest .third-wire {
+    left: 29.4%;
+    bottom: 46.1%;
+    width: 45.4%;
+}
+
+.forest .fourth-wire {
+    left: 34.4%;
+    bottom: 60.5%;
+    width: 30.8%;
+}
+
+.forest .fifth-wire {
+    left: 43.9%;
+    bottom: 75%;
+    width: 14.7%;
+}
+
+.forest li:nth-child(4n-3) {
+    background-color: var(--blue);
+}
+
+.forest li:nth-child(4n-2) {
+    background-color: var(--red);
+}
+
+.forest li:nth-child(4n-1) {
+    background-color: var(--yellow);
+}
+
+.forest li:nth-child(4n) {
+    background-color: var(--purple);
+}
+
+.forest li::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 0.6vw;
+    height: 0.4vw;
+    border-radius: 4px;
+    background-color: var(--wire-handle-color);
+}
+
+@keyframes first-flash-even {
+
+    0%,
+    100% {
+        background-color: var(--blue);
+        box-shadow: var(--box-shadow-propeties) var(--blue);
+    }
+
+    50% {
+        background-color: var(--blue-light);
+        box-shadow: var(--box-shadow-propeties) var(--blue-lightest);
+    }
+}
+
+@keyframes second-flash-even {
+
+    50% {
+        background-color: var(--red);
+        box-shadow: var(--box-shadow-propeties) var(--red);
+    }
+
+    0%,
+    100% {
+        background-color: var(--red-light);
+        box-shadow: var(--box-shadow-propeties) var(--red-lightest);
+    }
+}
+
+@keyframes third-flash-even {
+
+    0%,
+    100% {
+        background-color: var(--yellow);
+        box-shadow: var(--box-shadow-propeties) var(--yellow);
+    }
+
+    50% {
+        background-color: var(--yellow-light);
+        box-shadow: var(--box-shadow-propeties) var(--yellow-lightest);
+    }
+}
+
+@keyframes fourth-flash-even {
+
+    50% {
+        background-color: var(--purple);
+        box-shadow: var(--box-shadow-propeties) var(--purple);
+    }
+
+    0%,
+    100% {
+        background-color: var(--purple-light);
+        box-shadow: var(--box-shadow-propeties) var(--purple-lightest);
+    }
+}
+
+@keyframes first-flash-odd {
+
+    50% {
+        background-color: var(--blue);
+        box-shadow: var(--box-shadow-propeties) var(--blue);
+    }
+
+    0%,
+    100% {
+        background-color: var(--blue-light);
+        box-shadow: var(--box-shadow-propeties) var(--blue-lightest);
+    }
+}
+
+@keyframes second-flash-odd {
+
+    0%,
+    100% {
+        background-color: var(--red);
+        box-shadow: var(--box-shadow-propeties) var(--red);
+    }
+
+    50% {
+        background-color: var(--red-light);
+        box-shadow: var(--box-shadow-propeties) var(--red-lightest);
+    }
+}
+
+@keyframes third-flash-odd {
+
+    50% {
+        background-color: var(--yellow);
+        box-shadow: var(--box-shadow-propeties) var(--yellow);
+    }
+
+    0%,
+    100% {
+        background-color: var(--yellow-light);
+        box-shadow: var(--box-shadow-propeties) var(--yellow-lightest);
+    }
+}
+
+@keyframes fourth-flash-odd {
+
+    0%,
+    100% {
+        background-color: var(--purple);
+        box-shadow: var(--box-shadow-propeties) var(--purple);
+    }
+
+    50% {
+        background-color: var(--purple-light);
+        box-shadow: var(--box-shadow-propeties) var(--purple-lightest);
+    }
+}
